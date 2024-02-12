@@ -16,11 +16,17 @@ import { store } from './store'
     },
     mounted(){
       this.getData()
+      this.getArchetype()
     },
     methods: {
     getData(){
         axios.get(store.ApiUrl).then( (res)=> {
           store.cardsArray = res.data.data
+        })
+    },
+    getArchetype(){
+        axios.get(store.archetypeApiUrl).then( (res)=> {
+          store.archetypeArray = res.data
         })
     }
   }

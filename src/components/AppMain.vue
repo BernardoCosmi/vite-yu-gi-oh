@@ -5,10 +5,9 @@
                 class="form-select form-select-lg"
                 name=""
                 id=""
+                v-model="store.selectValue"
             >
-                <option value="">Alien</option>
-                <option value="">Istanbul</option>
-                <option value="">Jakarta</option>
+                <option :value="element.archetype_name" v-for="(element, index) in store.archetypeArray" :key="index">{{ element.archetype_name }}</option>
             </select>
         </div>
 
@@ -23,6 +22,7 @@
 
 <script>
 import CardList from "./cards/CardList.vue"
+import { store } from "../store"
 
 export default {
   name: "AppMain",
@@ -31,7 +31,7 @@ export default {
   },
   data (){
     return{
-        
+        store
     }
   }
 };
