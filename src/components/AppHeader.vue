@@ -26,15 +26,13 @@ export default {
 div{
   display: flex;
   align-items: center;
-  margin: 5px;
-  border: 1px solid black;
+  margin: 20px;
 }
 figure{
   width: 120px;
   height: 100%;
   display: flex;
   align-items: center;
-  border: 1px solid black;
 
   img{
     display: block;
