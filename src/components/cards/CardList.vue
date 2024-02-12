@@ -1,29 +1,33 @@
 <template>
     <div class="bg-dark text-light text-center p-2 my-3">
         <h3>
-            Found {{ store.cardsArray.length }} cards
+            Found {{ filteredCards.length }} cards
         </h3>
     </div>
     <div class="row">
-        <SingleCard v-for="(element, index) in store.cardsArray" :key="index" :propsElement="element" />
+        <SingleCard v-for="(card, index) in filteredCards" :key="index" :propsElement="card" />
     </div>
 </template>
 
 <script>
-    import SingleCard from "../../components/cards/SingleCard.vue"
-    import { store } from "../../store"
+import SingleCard from "../../components/cards/SingleCard.vue"
 
-    export default {
-        name: "CardList",
-        components: {
-            SingleCard
-        },
-        data() {
-            return {
-                store
-            }
+export default {
+    name: "CardList",
+    components: {
+        SingleCard
+    },
+    props: ['cards'],
+    data() {
+        return {
         }
-    };
+    },
+    computed: {
+        filteredCards() {
+            return this.cards;
+        }
+    }
+};
 </script>
 
 
